@@ -19,7 +19,7 @@ public struct Markdown: View {
     }
 
     public var body: some View {
-        ScrollView {
+        //        ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(arryText, id: \.self) { line in
                     switch getMarkdownStyle(text: line) {
@@ -59,7 +59,7 @@ public struct Markdown: View {
                 }
             }
             .padding(.horizontal)
-        }
+//        }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .onChange(of: text) { _ in
             arryText = MarkdownsSplit(text)
