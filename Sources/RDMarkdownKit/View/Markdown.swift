@@ -60,7 +60,7 @@ public struct Markdown: View {
             }
             .padding(.horizontal)
 //        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+//        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .onChange(of: text) { _ in
             arryText = MarkdownsSplit(text)
         }
