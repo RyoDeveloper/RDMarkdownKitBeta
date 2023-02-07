@@ -1,6 +1,6 @@
 //
 //  ListColumView.swift
-//  
+//
 //
 //  https://github.com/RyoDeveloper/RDMarkdownKit
 //  Copyright © 2023 RyoDeveloper. All rights reserved.
@@ -13,9 +13,9 @@ struct ListColumView: View {
     init(_ text: String) {
         self.text = text
     }
-    
+
     var body: some View {
-        HStack {
+        HStack(alignment: .top) {
             Circle()
                 .frame(width: 5)
             Text(text.getAttributedString())

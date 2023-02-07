@@ -1,6 +1,6 @@
 //
 //  NumlistColumView.swift
-//  
+//
 //
 //  https://github.com/RyoDeveloper/RDMarkdownKit
 //  Copyright © 2023 RyoDeveloper. All rights reserved.
@@ -13,10 +13,10 @@ struct NumlistColumView: View {
     init(_ text: String) {
         self.text = text
     }
-        
+
     var body: some View {
         HStack {
-            Text(hogenum(text)+".")
+            Text(hogenum(text) + ".")
             Text(text.getAttributedString())
         }
         .frame(maxWidth: .infinity, alignment: .topLeading)
