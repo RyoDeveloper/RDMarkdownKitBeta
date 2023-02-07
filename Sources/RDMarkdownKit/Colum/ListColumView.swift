@@ -20,7 +20,7 @@ struct ListColumView: View {
                 .frame(width: 5)
             Text(text.getAttributedString())
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, alignment: .topLeading)
     }
 }
 

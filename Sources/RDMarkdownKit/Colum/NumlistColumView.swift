@@ -19,7 +19,7 @@ struct NumlistColumView: View {
             Text(hogenum(text)+".")
             Text(text.getAttributedString())
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, alignment: .topLeading)
     }
 }
 
