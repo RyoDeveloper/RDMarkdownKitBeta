@@ -1,6 +1,6 @@
 //
 //  QuoteColumView.swift
-//  
+//
 //
 //  https://github.com/RyoDeveloper/RDMarkdownKit
 //  Copyright © 2023 RyoDeveloper. All rights reserved.
@@ -13,7 +13,7 @@ struct QuoteColumView: View {
     init(_ text: String) {
         self.text = text
     }
-    
+
     var body: some View {
         HStack {
             Rectangle()

@@ -30,6 +30,10 @@ func regex(_ text: String, type: MarkdownStyle) -> Bool {
         if text.wholeMatch(of: footnote) != nil {
             return true
         }
+    } else if type == .delimiter {
+        if text.wholeMatch(of: delimiter) != nil {
+            return true
+        }
     }
     return false
 }
@@ -92,5 +96,15 @@ let footnote = Regex {
     "[^"
     OneOrMore(.digit)
     "]:"
+    ZeroOrMore(.any)
+}
+
+let delimiter = Regex {
+    ZeroOrMore(.whitespace)
+    ChoiceOf {
+        "***"
+        "---"
+        "___"
+    }
     ZeroOrMore(.any)
 }

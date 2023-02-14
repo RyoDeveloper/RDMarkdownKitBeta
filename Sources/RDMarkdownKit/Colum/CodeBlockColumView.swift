@@ -11,7 +11,6 @@ import SwiftUI
 struct CodeBlockColumView: View {
     @AppStorage("isScroll") var isScroll = false
     @State var code: String
-    @State var fileName: String?
 
     init(_ text: String) {
         var hoge = text
@@ -22,18 +21,10 @@ struct CodeBlockColumView: View {
             hoge.removeLast(4)
         }
         self.code = hoge
-
-        fileName = "apple.swift"
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            if let fileName {
-                Text(fileName)
-                    .font(.footnote)
-                    .padding([.top, .leading, .trailing], 4)
-                    .background(Color.gray.opacity(0.1))
-            }
             Group {
                 if isScroll {
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -48,6 +39,7 @@ struct CodeBlockColumView: View {
             .font(.system(.body, design: .monospaced))
             .frame(maxWidth: .infinity, alignment: .topLeading)
             .background(Color.gray.opacity(0.1))
+            .cornerRadius(10)
             .contextMenu {
                 Button {
                     isScroll.toggle()

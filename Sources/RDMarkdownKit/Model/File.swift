@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  https://github.com/RyoDeveloper/RDMarkdownKit
 //  Copyright © 2023 RyoDeveloper. All rights reserved.
@@ -9,8 +9,8 @@
 import Foundation
 
 func MarkdownsSplit(_ text: String) -> [String] {
-    let Newline = text.split(whereSeparator: \.isNewline)
-    var Array:[String] = []
+    let Newline = text.components(separatedBy: "\n")
+    var Array: [String] = []
     var isCoodeBlock = false
     var temCode = ""
 

@@ -15,9 +15,9 @@ struct ListColumView: View {
     }
 
     var body: some View {
-        HStack(alignment: .top) {
-            Circle()
-                .frame(width: 5)
+        HStack(alignment: .top, spacing: 0) {
+            Text("•  ")
+                .fontWeight(.semibold)
             Text(text.getAttributedString())
         }
         .frame(maxWidth: .infinity, alignment: .topLeading)

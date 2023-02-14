@@ -1,6 +1,6 @@
 //
 //  ImageColumView.swift
-//  
+//
 //
 //  https://github.com/RyoDeveloper/RDMarkdownKit
 //  Copyright © 2023 RyoDeveloper. All rights reserved.
@@ -11,15 +11,13 @@ import SwiftUI
 struct ImageColumView: View {
     @AppStorage("isLargeImage") var isLargeImage = false
     @State var text: String
-    @State private var url:URL
-    
+    @State private var url: URL
 
     init(_ text: String) {
-        self._text = State(initialValue:text)
-        self._url = State(initialValue:imageUrl(text))
+        self._text = State(initialValue: text)
+        self._url = State(initialValue: imageUrl(text))
     }
-    
-    
+
     var body: some View {
         HStack {
             AsyncImage(url: url) { image in
@@ -32,7 +30,7 @@ struct ImageColumView: View {
                         Button {
                             isLargeImage.toggle()
                         } label: {
-                            Label(isLargeImage ? "拡大":  "縮小" , systemImage: isLargeImage ? "arrow.up.backward.and.arrow.down.forward" : "arrow.down.right.and.arrow.up.left")
+                            Label(isLargeImage ? "拡大" : "縮小", systemImage: isLargeImage ? "arrow.up.backward.and.arrow.down.forward" : "arrow.down.right.and.arrow.up.left")
                         }
                     }
                     .animation(.default, value: isLargeImage)
@@ -40,7 +38,7 @@ struct ImageColumView: View {
                 HStack {
                     ProgressView()
                     // 代替テキスト
-                    Text(text.getAttributedString() )
+                    Text(text.getAttributedString())
                 }
             }
             if isLargeImage {

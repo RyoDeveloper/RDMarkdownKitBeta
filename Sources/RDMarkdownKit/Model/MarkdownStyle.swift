@@ -1,6 +1,6 @@
 //
 //  MarkdownStyle.swift
-//  
+//
 //
 //  https://github.com/RyoDeveloper/RDMarkdownKit
 //  Copyright © 2023 RyoDeveloper. All rights reserved.
@@ -35,10 +35,12 @@ enum MarkdownStyle {
     case quote
     /// 脚注[^1] ※未実装
     case footnote
+    /// 区切り線
+    case delimiter
     /// 本文
     case body
-    
 }
+
 func getMarkdownStyle(text: String) -> MarkdownStyle {
     if text.prefix(2) == "# " {
         return .heading1
@@ -58,7 +60,7 @@ func getMarkdownStyle(text: String) -> MarkdownStyle {
         return .numlist
     } else if text.prefix(1) == "" {
         return .link
-    } else if regex(text, type: .image){
+    } else if regex(text, type: .image) {
         return .image
     } else if text.prefix(3) == "```" {
         return .code
@@ -66,6 +68,8 @@ func getMarkdownStyle(text: String) -> MarkdownStyle {
         return .quote
     } else if text.prefix(1) == "" {
         return .footnote
+    } else if regex(text, type: .delimiter) {
+        return .delimiter
     } else {
         return .body
     }

@@ -12,7 +12,7 @@ public struct Markdown: View {
     @Binding var text: String
     @State var arryText: [String]
     @AppStorage("isLargeImage") var isLargeImage = false
-    
+
     public init(_ text: Binding<String>) {
         self._text = text
         self.arryText = MarkdownsSplit(text.wrappedValue)
@@ -53,6 +53,8 @@ public struct Markdown: View {
                         QuoteColumView(line)
                     case .footnote:
                         Text(line.getAttributedString())
+                    case .delimiter:
+                        Divider()
                     case .body:
                         Text(line.getAttributedString())
                     }
