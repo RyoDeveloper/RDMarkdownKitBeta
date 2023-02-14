@@ -16,7 +16,7 @@ struct NumlistColumView: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
-            Text(hogenum(text) + ". ")
+            Text("  " + hogenum(text) + ". ")
                 .fontWeight(.semibold)
             Text(text.getAttributedString())
         }

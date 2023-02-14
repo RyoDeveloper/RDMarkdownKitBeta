@@ -16,7 +16,7 @@ struct ListColumView: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
-            Text("•  ")
+            Text("  •  ")
                 .fontWeight(.semibold)
             Text(text.getAttributedString())
         }
