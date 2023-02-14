@@ -9,23 +9,30 @@
 import SwiftUI
 
 struct QuoteColumView: View {
-    @State var text: String
+    @State var text: [String]
     init(_ text: String) {
-        self.text = text
+        // self.text = text
+        self.text = text.components(separatedBy: "\n")
     }
 
     var body: some View {
         HStack {
             Rectangle()
                 .frame(width: 5, height: 0.0)
-            Text(text.getAttributedString())
+            VStack {
+                ForEach(text, id: \.self) { a in
+                    Text(a.getAttributedString())
+                }
+            }
+            .padding(.vertical, 5.0)
         }
         .background(
             HStack {
                 Rectangle()
-                    .foregroundColor(.gray)
+                    .foregroundColor(.gray.opacity(0.4))
                     .frame(width: 5)
                     .frame(maxHeight: .infinity)
+                    .cornerRadius(10)
                 Spacer()
             }
         )
@@ -35,6 +42,6 @@ struct QuoteColumView: View {
 
 struct QuoteColumView_Previews: PreviewProvider {
     static var previews: some View {
-        QuoteColumView("> A")
+        QuoteColumView("> A\n> B")
     }
 }

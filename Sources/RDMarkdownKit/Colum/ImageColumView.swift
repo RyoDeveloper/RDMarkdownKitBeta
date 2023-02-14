@@ -24,9 +24,7 @@ struct ImageColumView: View {
                 image
                     .resizable()
                     .scaledToFit()
-                    .frame(maxWidth: .infinity, alignment: .topLeading)
-                    .padding(.vertical, 4.0)
-                    .contextMenu {
+                    .frame(maxWidth: .infinity, alignment: .topLeading).contextMenu {
                         Button {
                             isLargeImage.toggle()
                         } label: {

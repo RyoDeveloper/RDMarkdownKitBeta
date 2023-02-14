@@ -20,25 +20,33 @@ public struct Markdown: View {
 
     public var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: 4.0) {
                 ForEach(arryText, id: \.self) { line in
                     switch getMarkdownStyle(text: line) {
                     case .heading1:
                         Text(line.getAttributedString())
                             .font(.largeTitle)
+                            .fontWeight(.medium)
+                        Divider()
                     case .heading2:
                         Text(line.getAttributedString())
                             .font(.title)
+                            .fontWeight(.medium)
+                        Divider()
                     case .heading3:
                         Text(line.getAttributedString())
                             .font(.title2)
+                            .fontWeight(.medium)
                     case .heading4:
                         Text(line.getAttributedString())
                             .font(.title3)
+                            .fontWeight(.medium)
                     case .heading5:
                         Text(line.getAttributedString())
+                            .fontWeight(.medium)
                     case .heading6:
                         Text(line.getAttributedString())
+                            .fontWeight(.medium)
                     case .list:
                         ListColumView(line)
                     case .numlist:

@@ -34,7 +34,14 @@ func MarkdownsSplit(_ text: String) -> [String] {
             temCode += code + "\n"
         } else {
             // コードブロック以外
-            Array += [String(code)]
+            if code.prefix(2) == "> " && Array.last?.prefix(2) == "> " {
+                var fuge = String(code)
+                // 引用
+                Array[Array.count - 1] += "\n" + fuge
+            } else {
+                // それ以外
+                Array += [String(code)]
+            }
         }
     }
     return Array
