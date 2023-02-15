@@ -24,13 +24,14 @@ struct ImageColumView: View {
                 image
                     .resizable()
                     .scaledToFit()
-                    .frame(maxWidth: .infinity, alignment: .topLeading).contextMenu {
-                        Button {
-                            isLargeImage.toggle()
-                        } label: {
-                            Label(isLargeImage ? "拡大" : "縮小", systemImage: isLargeImage ? "arrow.up.backward.and.arrow.down.forward" : "arrow.down.right.and.arrow.up.left")
-                        }
-                    }
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+//                    .contextMenu {
+//                        Button {
+//                            isLargeImage.toggle()
+//                        } label: {
+//                            Label(isLargeImage ? "拡大" : "縮小", systemImage: isLargeImage ? "arrow.up.backward.and.arrow.down.forward" : "arrow.down.right.and.arrow.up.left")
+//                        }
+//                    }
                     .animation(.default, value: isLargeImage)
             } placeholder: {
                 HStack {
