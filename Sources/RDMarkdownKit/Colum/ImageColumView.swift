@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ImageColumView: View {
-    @AppStorage("isLargeImage") var isLargeImage = false
+    @AppStorage("isLargeImage") var isLargeImage = true
     @State var text: String
     @State private var url: URL
 
