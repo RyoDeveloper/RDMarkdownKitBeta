@@ -15,10 +15,15 @@ struct CodeBlockColumView: View {
     init(_ text: String) {
         var hoge = text
         if hoge.prefix(3) == "```" {
-            hoge.removeFirst(4)
+            if hoge.count < 4 {
+                hoge.removeFirst(4)
+            }
         }
         if hoge.suffix(3) == "```" {
-            hoge.removeLast(4)
+            // 空の文字にアクセスしないように
+            if hoge.count < 4 {
+                hoge.removeLast(4)
+            }
         }
         self.code = hoge
     }
