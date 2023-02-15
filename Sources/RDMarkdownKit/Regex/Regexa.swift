@@ -58,6 +58,15 @@ func hogenum(_ text: String) -> String {
     return urla
 }
 
+func hgefootnote(_ text: String) -> String {
+    var texta = text
+    if let match = text.firstMatch(of: footnote) {
+        texta.removeFirst(match.1.count)
+        texta = String(match.2) + ". " + texta
+    }
+    return texta
+}
+
 let list = Regex {
     ZeroOrMore(.whitespace)
     ChoiceOf {
@@ -93,9 +102,13 @@ let quote = Regex {
 }
 
 let footnote = Regex {
-    "[^"
-    OneOrMore(.digit)
-    "]:"
+    Capture {
+        "[^"
+        Capture {
+            OneOrMore(.digit)
+        }
+        "]:"
+    }
     ZeroOrMore(.any)
 }
 

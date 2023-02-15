@@ -66,7 +66,7 @@ func getMarkdownStyle(text: String) -> MarkdownStyle {
         return .code
     } else if regex(text, type: .quote) {
         return .quote
-    } else if text.prefix(1) == "" {
+    } else if regex(text, type: .footnote) {
         return .footnote
     } else if regex(text, type: .delimiter) {
         return .delimiter

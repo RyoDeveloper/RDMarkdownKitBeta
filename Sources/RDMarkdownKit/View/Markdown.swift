@@ -60,7 +60,9 @@ public struct Markdown: View {
                     case .quote:
                         QuoteColumView(line)
                     case .footnote:
-                        Text(line.getAttributedString())
+                        Text(hgefootnote(line))
+                            .font(.footnote)
+                            .foregroundColor(Color.gray)
                     case .delimiter:
                         Divider()
                     case .body:
@@ -97,7 +99,6 @@ struct Markdown_Previews: PreviewProvider {
         012
         ```
         > 引用1
-        > 引用2
         [^1]:脚注の内容その1
         *イタリック*
         **太字**
