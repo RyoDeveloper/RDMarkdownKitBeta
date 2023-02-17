@@ -14,12 +14,20 @@ struct CodeBlockColumView: View {
 
     init(_ text: String) {
         var hoge = text
-        if hoge.prefix(3) == "```" {
-            hoge.removeFirst(3)
-        }
-        if hoge.suffix(3) == "```" {
-            // 空の文字にアクセスしないように
-            hoge.removeLast(3)
+        let kara = """
+        ```
+        ```
+        """
+        if hoge != kara {
+            if hoge.prefix(3) == "```" {
+                hoge.removeFirst(4)
+            }
+            if hoge.suffix(3) == "```" {
+                // 空の文字にアクセスしないように
+                hoge.removeLast(4)
+            }
+        } else {
+            hoge = ""
         }
         self.code = hoge
     }
@@ -41,13 +49,13 @@ struct CodeBlockColumView: View {
             .frame(maxWidth: .infinity, alignment: .topLeading)
             .background(Color.gray.opacity(0.1))
             .cornerRadius(10)
-//            .contextMenu {
-//                Button {
-//                    isScroll.toggle()
-//                } label: {
-//                    Label(isScroll ? "折り返す" : "折り返さない", systemImage: isScroll ? "arrow.up.backward.and.arrow.down.forward" : "arrow.down.right.and.arrow.up.left")
-//                }
-//            }
+            //            .contextMenu {
+            //                Button {
+            //                    isScroll.toggle()
+            //                } label: {
+            //                    Label(isScroll ? "折り返す" : "折り返さない", systemImage: isScroll ? "arrow.up.backward.and.arrow.down.forward" : "arrow.down.right.and.arrow.up.left")
+            //                }
+            //            }
         }
     }
 }
