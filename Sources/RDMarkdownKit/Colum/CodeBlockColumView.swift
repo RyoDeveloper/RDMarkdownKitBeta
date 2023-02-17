@@ -14,7 +14,7 @@ struct CodeBlockColumView: View {
 
     init(_ text: String) {
         var hoge = text
-        if hoge.prefix(3) == "```" {
+        if hoge.prefix(3) == "```\n" {
             hoge.removeFirst(4)
         }
         if hoge.suffix(3) == "```" {
