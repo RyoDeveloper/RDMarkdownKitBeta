@@ -47,7 +47,7 @@ struct CodeBlockColumView: View {
             .padding()
             .font(.system(.body, design: .monospaced))
             .frame(maxWidth: .infinity, alignment: .topLeading)
-            .background(Color.gray.opacity(0.1))
+            .background(Color.primary.opacity(0.1))
             .cornerRadius(10)
             //            .contextMenu {
             //                Button {
