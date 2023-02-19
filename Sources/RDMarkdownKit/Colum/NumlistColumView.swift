@@ -15,7 +15,7 @@ struct NumlistColumView: View {
     }
 
     var body: some View {
-        HStack {
+        HStack(alignment: .top) {
             Text(hogenum(text) + ".")
             Text(text.getAttributedString())
         }
