@@ -1,5 +1,5 @@
 //
-//  QuoteColumView.swift
+//  QuoteColumnView.swift
 //
 //
 //  https://github.com/RyoDeveloper/RDMarkdownKit
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct QuoteColumView: View {
+struct QuoteColumnView: View {
     @State var text: [String]
     init(_ text: String) {
         // self.text = text
@@ -40,8 +40,8 @@ struct QuoteColumView: View {
     }
 }
 
-struct QuoteColumView_Previews: PreviewProvider {
+struct QuoteColumnView_Previews: PreviewProvider {
     static var previews: some View {
-        QuoteColumView("> A\n> B")
+        QuoteColumnView("> A\n> B")
     }
 }

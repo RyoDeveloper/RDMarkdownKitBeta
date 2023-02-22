@@ -22,6 +22,10 @@ func regex(_ text: String, type: MarkdownStyle) -> Bool {
         if text.wholeMatch(of: image) != nil {
             return true
         }
+    } else if type == .code {
+        if text.wholeMatch(of: code) != nil {
+            return true
+        }
     } else if type == .quote {
         if text.wholeMatch(of: quote) != nil {
             return true
@@ -39,32 +43,40 @@ func regex(_ text: String, type: MarkdownStyle) -> Bool {
 }
 
 func imageUrl(_ text: String) -> URL {
-    var urla = ""
+    var url = ""
 
     if let match = text.wholeMatch(of: image) {
-        urla = String(match.2) // https://developer.apple.com)
-        if urla.suffix(1) == ")" {
-            urla.removeLast(1) // https://developer.apple.com
+        url = String(match.2) // https://developer.apple.com)
+        if url.suffix(1) == ")" {
+            url.removeLast(1) // https://developer.apple.com
         }
     }
-    return URL(string: urla)!
+    return URL(string: url)!
 }
 
-func hogenum(_ text: String) -> String {
-    var urla = ""
+func numListText(_ text: String) -> String {
+    var url = ""
     if let match = text.firstMatch(of: numlist) {
-        urla = String(match.1)
+        url = String(match.1)
     }
-    return urla
+    return url
 }
 
-func hgefootnote(_ text: String) -> String {
-    var texta = text
-    if let match = text.firstMatch(of: footnote) {
-        texta.removeFirst(match.1.count)
-        texta = String(match.2) + ". " + texta
+func codeText(_ text: String) -> String {
+    var text = text
+    if let match = text.firstMatch(of: code) {
+        text = String(match.1)
     }
-    return texta
+    return text
+}
+
+func footnoteText(_ text: String) -> String {
+    var text = text
+    if let match = text.firstMatch(of: footnote) {
+        text.removeFirst(match.1.count)
+        text = String(match.2) + ". " + text
+    }
+    return text
 }
 
 let list = Regex {
@@ -120,4 +132,12 @@ let delimiter = Regex {
         "___"
     }
     ZeroOrMore(.any)
+}
+
+let code = Regex {
+    "```"
+    Capture {
+        ZeroOrMore(.any)
+    }
+    "```"
 }

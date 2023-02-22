@@ -1,5 +1,5 @@
 //
-//  ImageColumView.swift
+//  ImageColumnView.swift
 //
 //
 //  https://github.com/RyoDeveloper/RDMarkdownKit
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ImageColumView: View {
+struct ImageColumnView: View {
     @AppStorage("isLargeImage") var isLargeImage = true
     @State var text: String
     @State private var url: URL
@@ -48,8 +48,8 @@ struct ImageColumView: View {
     }
 }
 
-struct ImageColumView_Previews: PreviewProvider {
+struct ImageColumnView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageColumView("![アイコン](https://avatars.githubusercontent.com/u/121738322?v=4)")
+        ImageColumnView("![アイコン](https://avatars.githubusercontent.com/u/121738322?v=4)")
     }
 }

@@ -48,19 +48,19 @@ public struct Markdown: View {
                         Text(line.getAttributedString())
                             .fontWeight(.medium)
                     case .list:
-                        ListColumView(line)
+                        ListColumnView(line)
                     case .numlist:
-                        NumlistColumView(line)
+                        NumlistColumnView(line)
                     case .link:
                         Text(line.getAttributedString())
                     case .image:
-                        ImageColumView(line)
+                        ImageColumnView(line)
                     case .code:
-                        CodeBlockColumView(line)
+                        CodeBlockColumnView(line)
                     case .quote:
-                        QuoteColumView(line)
+                        QuoteColumnView(line)
                     case .footnote:
-                        Text(hgefootnote(line))
+                        Text(footnoteText(line))
                             .font(.footnote)
                             .foregroundColor(Color.gray)
                     case .delimiter:
