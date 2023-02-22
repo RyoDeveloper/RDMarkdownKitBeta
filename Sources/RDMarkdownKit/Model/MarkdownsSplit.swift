@@ -44,5 +44,6 @@ func MarkdownsSplit(_ text: String) -> [String] {
             }
         }
     }
+    Array += [temCode]
     return Array
 }
