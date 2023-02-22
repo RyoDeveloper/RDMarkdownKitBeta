@@ -136,8 +136,10 @@ let delimiter = Regex {
 
 let code = Regex {
     "```"
+    One(.newlineSequence)
     Capture {
         ZeroOrMore(.any)
     }
+    One(.newlineSequence)
     "```"
 }
