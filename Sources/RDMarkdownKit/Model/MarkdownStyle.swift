@@ -62,9 +62,9 @@ func getMarkdownStyle(text: String) -> MarkdownStyle {
         return .link
     } else if regex(text, type: .image) {
         return .image
-    } else if text.prefix(3) == "```" {
+    } else if regex(text, type: .code) {
         return .code
-    } else if regex(text, type: .quote) {
+    }else if regex(text, type: .quote) {
         return .quote
     } else if regex(text, type: .footnote) {
         return .footnote

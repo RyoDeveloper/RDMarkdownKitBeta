@@ -13,22 +13,6 @@ struct CodeBlockColumnView: View {
     @State var code: String
 
     init(_ code: String) {
-        var code = code
-        let kara = """
-        ```
-        ```
-        """
-        if code != kara {
-            if code.prefix(3) == "```" {
-                code.removeFirst(4)
-            }
-            if code.suffix(3) == "```" {
-                // 空の文字にアクセスしないように
-                code.removeLast(4)
-            }
-        } else {
-            code = ""
-        }
         self.code = code
     }
 
@@ -37,10 +21,10 @@ struct CodeBlockColumnView: View {
             Group {
                 if isScroll {
                     ScrollView(.horizontal, showsIndicators: false) {
-                        Text(code)
+                        Text(codeText(code))
                     }
                 } else {
-                    Text(code)
+                    Text(codeText(code))
                 }
             }
             .textSelection(.enabled)

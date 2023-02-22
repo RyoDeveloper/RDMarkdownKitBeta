@@ -22,6 +22,10 @@ func regex(_ text: String, type: MarkdownStyle) -> Bool {
         if text.wholeMatch(of: image) != nil {
             return true
         }
+    } else if type == .code {
+        if text.wholeMatch(of: code) != nil {
+            return true
+        }
     } else if type == .quote {
         if text.wholeMatch(of: quote) != nil {
             return true
@@ -56,6 +60,14 @@ func numListText(_ text: String) -> String {
         url = String(match.1)
     }
     return url
+}
+
+func codeText(_ text: String) -> String {
+    var text = text
+    if let match = text.firstMatch(of: code) {
+        text = String(match.1)
+    }
+    return text
 }
 
 func footnoteText(_ text: String) -> String {
@@ -120,4 +132,12 @@ let delimiter = Regex {
         "___"
     }
     ZeroOrMore(.any)
+}
+
+let code = Regex {
+    "```"
+    Capture {
+        ZeroOrMore(.any)
+    }
+    "```"
 }
