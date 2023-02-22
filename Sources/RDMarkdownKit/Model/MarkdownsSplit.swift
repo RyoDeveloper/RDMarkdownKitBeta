@@ -11,31 +11,31 @@ import Foundation
 func MarkdownsSplit(_ text: String) -> [String] {
     let Newline = text.components(separatedBy: "\n")
     var Array: [String] = []
-    var isCoodeBlock = false
+    var isCodeBlock = false
     var temCode = ""
 
     for code in Newline {
         if code == "```" {
-            if isCoodeBlock {
+            if isCodeBlock {
                 // コードブロック終了
                 temCode += code
                 Array += [temCode]
                 temCode = ""
-                isCoodeBlock = false
+                isCodeBlock = false
                 // "```"が2つ入らないように
                 continue
             } else {
                 // コードブロック開始
-                isCoodeBlock = true
+                isCodeBlock = true
             }
         }
-        if isCoodeBlock == true {
+        if isCodeBlock == true {
             // コードブロック中
             temCode += code + "\n"
         } else {
             // コードブロック以外
             if code.prefix(2) == "> " && Array.last?.prefix(2) == "> " {
-                var fuge = String(code)
+                let fuge = String(code)
                 // 引用
                 Array[Array.count - 1] += "\n" + fuge
             } else {

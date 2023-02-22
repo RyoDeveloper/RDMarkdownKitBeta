@@ -1,5 +1,5 @@
 //
-//  ListColumView.swift
+//  NumlistColumnView.swift
 //
 //
 //  https://github.com/RyoDeveloper/RDMarkdownKit
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ListColumView: View {
+struct NumlistColumnView: View {
     @State var text: String
     init(_ text: String) {
         self.text = text
@@ -16,7 +16,7 @@ struct ListColumView: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
-            Text("  •  ")
+            Text("  " + numListText(text) + ". ")
                 .fontWeight(.semibold)
             Text(text.getAttributedString())
         }
@@ -24,8 +24,8 @@ struct ListColumView: View {
     }
 }
 
-struct ListColumView_Previews: PreviewProvider {
+struct NumlistColumnView_Previews: PreviewProvider {
     static var previews: some View {
-        ListColumView("- a")
+        NumlistColumnView("1. NumList")
     }
 }

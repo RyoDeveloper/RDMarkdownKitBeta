@@ -1,5 +1,5 @@
 //
-//  CodeBlockColumView.swift
+//  CodeBlockColumnView.swift
 //
 //
 //  https://github.com/RyoDeveloper/RDMarkdownKit
@@ -8,28 +8,28 @@
 
 import SwiftUI
 
-struct CodeBlockColumView: View {
+struct CodeBlockColumnView: View {
     @AppStorage("isScroll") var isScroll = false
     @State var code: String
 
-    init(_ text: String) {
-        var hoge = text
+    init(_ code: String) {
+        var code = code
         let kara = """
         ```
         ```
         """
-        if hoge != kara {
-            if hoge.prefix(3) == "```" {
-                hoge.removeFirst(4)
+        if code != kara {
+            if code.prefix(3) == "```" {
+                code.removeFirst(4)
             }
-            if hoge.suffix(3) == "```" {
+            if code.suffix(3) == "```" {
                 // 空の文字にアクセスしないように
-                hoge.removeLast(4)
+                code.removeLast(4)
             }
         } else {
-            hoge = ""
+            code = ""
         }
-        self.code = hoge
+        self.code = code
     }
 
     var body: some View {
@@ -60,9 +60,9 @@ struct CodeBlockColumView: View {
     }
 }
 
-struct CodeBlockColumView_Previews: PreviewProvider {
+struct CodeBlockColumnView_Previews: PreviewProvider {
     static var previews: some View {
-        CodeBlockColumView("""
+        CodeBlockColumnView("""
         ```
         struct CodeBlockView: View {
             @State var code = ""
