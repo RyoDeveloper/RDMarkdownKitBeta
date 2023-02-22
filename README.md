@@ -20,6 +20,7 @@ SwiftUIでMarkdownを表示するライブラリです。
 ```
 - list
 * list
++ list
 ```
 
 ## 番号付きリスト
