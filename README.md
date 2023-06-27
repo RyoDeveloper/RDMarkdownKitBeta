@@ -34,6 +34,7 @@ SwiftUIでMarkdownを表示するライブラリです。
 
 ```
 [GitHub](https://github.com/RyoDeveloper)
+https://github.com/RyoDeveloper
 ```
 
 ## 画像
